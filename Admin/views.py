@@ -94,7 +94,7 @@ def payment(request,id):
         try:
             client = MpesaClient()
             response = client.stk_push(phone,int(amount),'eMobilis','Payment for fee','https://example.com/callback').json()
-            payment.objects.create(student=student,amount=amount,response=response,checkout_request_id=response.get('checkout_request_id',''),
+            payment.objects.create(user = request.user,phone=phone,amount=amount,checkout_request_id=response.get('checkout_request_id',''),
                                    status = 'pending')
             messages.success(request, 'STK PUSH SENT!Check your Phone')
         except Exception:

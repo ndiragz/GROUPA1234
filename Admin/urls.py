@@ -28,7 +28,7 @@ urlpatterns = [
     path('',views.signup_view, name='sign_up'),
     path('login/',views.login_view, name='login'),
     path('logout/',views.logout_view, name='logout'),
-    path('payment/',views.payment, name='payment')
+    path('payment/<int:id>/',views.payment, name='payment')
 ]
 
 
