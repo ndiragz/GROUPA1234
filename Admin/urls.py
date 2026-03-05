@@ -21,10 +21,14 @@ from Admin import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),
+    path('index/', views.index, name='index'),
     path('addrecord/',views.add_record, name='add_record'),
     path('updaterecord/<int:id>/',views.update_record, name='update_record'),
-    path("deleterecord/<int:id>/", views.delete_record, name="delete_record")
+    path("deleterecord/<int:id>/", views.delete_record, name="delete_record"),
+    path('',views.signup_view, name='sign_up'),
+    path('login/',views.login_view, name='login'),
+    path('logout/',views.logout_view, name='logout'),
+    path('payment/',views.payment, name='payment')
 ]
 
 
